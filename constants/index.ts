@@ -77,7 +77,7 @@ export const manufacturers = [
         { title: "How it works", url: "/" },
         { title: "Featured", url: "/" },
         { title: "Partnership", url: "/" },
-        { title: "Bussiness Relation", url: "/" },
+        { title: "Business Relation", url: "/" },
       ],
     },
     {

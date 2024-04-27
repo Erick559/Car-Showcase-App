@@ -10,7 +10,7 @@ interface CarCardProps {
     car: CarProps,
 }
 
-const CarCard = ({car}) => {
+const CarCard = ({car}:CarCardProps) => {
     const {city_mpg, year, make, model, transmission, drive} = car;
     const [isOpen, setisOpen] = useState(false)
 

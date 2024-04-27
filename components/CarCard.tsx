@@ -4,7 +4,7 @@ import {useState} from 'react'
 import Image from 'next/image'
 import { CarProps } from '@/types'
 import { CustomButton } from '.'
-import { CalculateCarRent } from '@/utils'
+import { CalculateCarRent, fetchCarImages } from '@/utils'
 import CarDetails from './CarDetails'
 
 
@@ -36,7 +36,7 @@ const CarCard = ({car}:CarCardProps) => {
         </p>
 
         <div className='relative w-full h-40 my-3 object-contain'>
-            <Image src='/hero.png' alt='car model' fill priority className='object-contain'/>
+            <Image src={fetchCarImages(car)} alt='car model' fill priority className='object-contain'/>
         </div>
 
         <div className='relative flex w-full mt-2'>

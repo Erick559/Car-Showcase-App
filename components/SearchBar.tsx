@@ -19,27 +19,29 @@ const SearchBar = () => {
     updateSearchParams(model.toLowerCase(),manufacturer.toLowerCase());
   }
 
-  const updateSearchParams = (model:string, manufacturer:string) => {
-    const params = new URLSearchParams(window.location.search);
+  const updateSearchParams = (model: string, manufacturer: string) => {
+    // Create a new URLSearchParams object using the current URL search parameters
+    const searchParams = new URLSearchParams(window.location.search);
 
-    if(model){
-      params.set('model',model);
-    }
-    else {
-      params.delete('model');
-    }
-
-    if(manufacturer){
-      params.set('manufacturer',manufacturer);
-    }
-    else {
-      params.delete('manufacturer');
+    // Update or delete the 'model' search parameter based on the 'model' value
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
     }
 
-    const pathName = `${window.location.pathname}?${params.toString()}`
+    // Update or delete the 'manufacturer' search parameter based on the 'manufacturer' value
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
 
-    router.push(pathName);
-  }
+    // Generate the new pathname with the updated search parameters
+    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+    router.push(newPathname);
+  };
 
   return (
     <form className='searchbar' onSubmit={HandleSearch}>

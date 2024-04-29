@@ -41,7 +41,7 @@ const SearchManufacturer = ({manufacturer , setManufacturer}: SearchManufacturer
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
             afterLeave={()=> setQuery('')}>
-              <Combobox.Options>
+              <Combobox.Options className='search-manufacturer__options'>
                 { filteredManufacturers.map((item) => (
                     <Combobox.Option
                       key={item}

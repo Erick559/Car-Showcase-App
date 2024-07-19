@@ -9,8 +9,9 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export default function Home({searchParams}: HomeProps) {
-  const [allCars, setAllCars] = useState([]);
+  const [allCars, setAllCars] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   //search states
   const [manufacturer, setManufacturer] = useState("");
@@ -25,6 +26,7 @@ export default function Home({searchParams}: HomeProps) {
 
   const getCars = async() => {
     setLoading(true);
+    setError(null);
     try {
       const results = await fetchCars({
         manufacturer: manufacturer || "",
@@ -36,6 +38,7 @@ export default function Home({searchParams}: HomeProps) {
       setAllCars(results);
     } catch (error) {
       console.log(error);
+      setError(`${error}: Something went Wrong`)
     }
     finally {
       setLoading(false);
@@ -82,7 +85,7 @@ export default function Home({searchParams}: HomeProps) {
         ):(
           <div className='home__error-container'>
             <h2 className='text-black text-xl font-bold'>Oops, No results</h2>
-            <p>{allCars?.message}</p>
+            <p>{error}</p>
           </div>
         )}
       </div>

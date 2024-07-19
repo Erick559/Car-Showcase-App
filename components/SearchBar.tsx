@@ -2,10 +2,11 @@
 
 import Image from "next/image"
 import { SearchManufacturer } from "."
-import { FormEvent, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { SearchBarProps } from "@/types"
 
-const SearchBar = ({setManufacturer,setModel}) => {
+const SearchBar = ({setManufacturer,setModel}: SearchBarProps) => {
   const router = useRouter();
   const [searchManufacturer, setSearchManufacturer] = useState('');
   const [searchModel,setSearchModel] = useState('');

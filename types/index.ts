@@ -47,6 +47,7 @@ export interface OptionProps {
 export interface CustomFilterProps {
     title:string;
     options:OptionProps[];
+    setFilter:any;
 }
 
 export interface HomeProps {
@@ -56,4 +57,15 @@ export interface HomeProps {
 export interface ShowMoreProps {
     pageNumber : number;
     isNext : boolean;
+    setLimit:any;
+}
+
+export interface SearchBarProps {
+    setManufacturer: React.Dispatch<React.SetStateAction<string>>;
+    setModel: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface ManufacturerProps {
+    selected:string;
+    setSelected:React.Dispatch<React.SetStateAction<string>>;
 }
